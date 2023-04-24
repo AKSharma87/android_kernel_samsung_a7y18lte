@@ -12,6 +12,8 @@
 #include <linux/restart_block.h>
 
 #ifdef CONFIG_THREAD_INFO_IN_TASK
+
+#ifdef CONFIG_THREAD_INFO_IN_TASK
 #define current_thread_info() ((struct thread_info *)current)
 #endif
 
