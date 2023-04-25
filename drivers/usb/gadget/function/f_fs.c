@@ -1043,6 +1043,7 @@ static ssize_t ffs_epfile_io(struct file *file, struct ffs_io_data *io_data)
 		 * by ffs_user_copy_worker.
 		 */
 		data = NULL;
+
 	}
 
 error_lock:
