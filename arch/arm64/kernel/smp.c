@@ -859,8 +859,6 @@ void tick_broadcast(const struct cpumask *mask)
 }
 #endif
 
-extern const struct cpumask *const cpu_online_mask;
-
 /*
  * The number of CPUs online, not counting this CPU (which may not be
  * fully online and so not counted in num_online_cpus()).
@@ -871,7 +869,6 @@ static inline unsigned int num_other_online_cpus(void)
 
 	return num_online_cpus() - this_cpu_online;
 }
-
 
 void smp_send_stop(void)
 {
@@ -891,11 +888,8 @@ void smp_send_stop(void)
 	while (num_other_online_cpus() && timeout--)
 		udelay(1);
 
-	if (num_other_online_cpus()) {
+	if (num_other_online_cpus())
 		pr_warning("SMP: failed to stop secondary CPUs\n");
-	} else {
-		pr_info("SMP: completed to stop secondary CPUS\n");
-	}
 }
 
 /*
