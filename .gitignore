@@ -23,6 +23,8 @@
 *.symtypes
 *.order
 *.elf
+!uh.elf
+!exynos7885_acpm_fvp.fw
 *.bin
 *.tar
 *.gz
